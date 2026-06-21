@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harish T — Electronics Engineer & Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --eg:  #0d4f3c;
+  --eg2: #0a3d2e;
+  --eg3: #0f5c46;
+  --egl: #1a7a5e;
+  --cop: #b5703a;
+  --copl:#d4935a;
+  --cr:  #faf6ef;
+  --cr2: #f2ead8;
+  --cr3: #e8ddc8;
+  --wh:  #ffffff;
+  --ink: #1a1a0f;
+  --ink2:#3a3a2a;
+  --mu:  #8a8a72;
+  --be:  rgba(13,79,60,0.14);
+  --bc:  rgba(181,112,58,0.22);
+  --sh:  0 8px 40px rgba(13,79,60,0.12);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--cr);color:var(--ink);font-family:'Outfit',sans-serif;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--eg2);}
+::-webkit-scrollbar-thumb{background:var(--cop);}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  background:rgba(10,61,46,0.97);backdrop-filter:blur(16px);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 60px;height:70px;
+  border-bottom:1px solid rgba(181,112,58,0.18);
+  transition:box-shadow .3s;
+}
+.nb{display:flex;align-items:center;gap:13px;text-decoration:none;}
+.nm{width:38px;height:38px;border:1.5px solid var(--cop);display:flex;align-items:center;justify-content:center;font-family:'Italiana',serif;font-size:1.15rem;color:var(--cop);}
+.nn{font-family:'Italiana',serif;font-size:1.25rem;color:var(--cr);letter-spacing:.05em;}
+.ns{font-size:.58rem;letter-spacing:.22em;color:rgba(250,246,239,.32);text-transform:uppercase;font-family:'Outfit',sans-serif;margin-top:1px;}
+.nl{display:flex;gap:34px;list-style:none;align-items:center;}
+.nl a{font-family:'Outfit',sans-serif;font-size:.76rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:rgba(250,246,239,.48);text-decoration:none;transition:color .25s;}
+.nl a:hover{color:var(--copl);}
+.nc{background:transparent!important;border:1px solid var(--cop)!important;color:var(--cop)!important;padding:8px 22px!important;transition:all .25s!important;}
+.nc:hover{background:var(--cop)!important;color:var(--cr)!important;}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--eg2);display:flex;align-items:center;padding:110px 60px 80px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:var(--eg);clip-path:polygon(14% 0,100% 0,100% 100%,0 100%);}
+.hero::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");pointer-events:none;}
+.hi{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr .8fr;gap:72px;align-items:center;max-width:1200px;width:100%;}
+
+.heb{display:flex;align-items:center;gap:14px;margin-bottom:26px;opacity:0;animation:up .9s ease .1s forwards;}
+.hel{width:46px;height:1px;background:var(--cop);}
+.heb span{font-family:'Outfit',sans-serif;font-size:.67rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--copl);}
+
+.hname{font-family:'Italiana',serif;font-size:clamp(4.2rem,9.5vw,9rem);line-height:.88;color:var(--cr);letter-spacing:.02em;opacity:0;animation:up .9s ease .25s forwards;}
+.hname span{display:block;font-family:'Libre Baskerville',serif;font-style:italic;font-weight:400;font-size:.23em;color:var(--copl);letter-spacing:.2em;margin-top:16px;text-transform:uppercase;}
+
+.hroles{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;opacity:0;animation:up .9s ease .42s forwards;}
+.rc{padding:5px 15px;font-family:'Outfit',sans-serif;font-size:.69rem;font-weight:500;letter-spacing:.07em;}
+.rc-e{background:rgba(13,79,60,.55);border:1px solid rgba(26,122,94,.45);color:rgba(250,246,239,.7);}
+.rc-c{background:rgba(181,112,58,.12);border:1px solid rgba(181,112,58,.35);color:var(--copl);}
+
+.hdesc{margin-top:26px;font-size:.96rem;line-height:1.85;color:rgba(250,246,239,.45);max-width:510px;font-weight:300;opacity:0;animation:up .9s ease .58s forwards;}
+
+.hbtns{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap;opacity:0;animation:up .9s ease .72s forwards;}
+.btn{display:inline-block;padding:13px 34px;font-family:'Outfit',sans-serif;font-size:.77rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .28s;}
+.btn-cop{background:var(--cop);color:var(--cr);}
+.btn-cop:hover{background:var(--copl);transform:translateY(-2px);box-shadow:0 8px 28px rgba(181,112,58,.3);}
+.btn-ol{background:transparent;color:rgba(250,246,239,.65);border:1px solid rgba(250,246,239,.2);}
+.btn-ol:hover{border-color:rgba(250,246,239,.5);color:var(--cr);}
+
+.hinfo{display:flex;gap:28px;margin-top:38px;flex-wrap:wrap;opacity:0;animation:up .9s ease .86s forwards;}
+.hii{display:flex;align-items:center;gap:8px;font-size:.76rem;color:rgba(250,246,239,.38);}
+.hii strong{color:rgba(250,246,239,.72);font-weight:500;}
+.hid{width:4px;height:4px;background:var(--cop);border-radius:50%;}
+
+/* hero card */
+.hcard{background:rgba(250,246,239,.04);border:1px solid rgba(181,112,58,.18);padding:26px;opacity:0;animation:fi 1.1s ease .38s forwards;}
+.hpbox{width:100%;height:310px;background:linear-gradient(150deg,rgba(13,79,60,.65),rgba(10,61,46,.95));display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;margin-bottom:20px;border:1px solid rgba(181,112,58,.14);position:relative;overflow:hidden;}
+.hpbox::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 16px,rgba(181,112,58,.025) 16px,rgba(181,112,58,.025) 17px);}
+.hpm{font-family:'Italiana',serif;font-size:5.5rem;color:rgba(250,246,239,.09);position:relative;z-index:1;line-height:1;}
+.hpl{font-size:.58rem;letter-spacing:.38em;color:rgba(250,246,239,.2);text-transform:uppercase;font-family:'Outfit',sans-serif;position:relative;z-index:1;}
+.hsg{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.hsi{background:rgba(250,246,239,.03);border:1px solid rgba(250,246,239,.06);padding:13px 14px;}
+.hsv{font-family:'Italiana',serif;font-size:1.65rem;color:var(--copl);line-height:1;}
+.hsk{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,246,239,.3);margin-top:3px;font-family:'Outfit',sans-serif;}
+
+/* TICKER */
+.ticker{background:var(--cop);padding:13px 0;overflow:hidden;white-space:nowrap;}
+.tt{display:inline-flex;animation:sc 32s linear infinite;}
+.tt span{font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,246,239,.85);padding:0 26px;}
+.tt span::after{content:'✦';margin-left:26px;color:rgba(250,246,239,.35);}
+@keyframes sc{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* SECTION BASE */
+section{padding:100px 60px;}
+.container{max-width:1200px;margin:0 auto;}
+.sl{display:inline-flex;align-items:center;gap:12px;margin-bottom:13px;font-family:'Outfit',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--cop);}
+.sl::before{content:'';width:30px;height:1px;background:var(--cop);}
+.st{font-family:'Italiana',serif;font-size:clamp(2.5rem,5vw,4.2rem);line-height:1.0;color:var(--eg);margin-bottom:14px;letter-spacing:.02em;}
+.st em{color:var(--cop);font-family:'Libre Baskerville',serif;font-style:italic;font-weight:400;}
+.ssub{font-size:.93rem;color:var(--mu);line-height:1.8;max-width:640px;margin-bottom:58px;font-weight:300;}
+
+/* dark section overrides */
+.dark .sl{color:var(--copl);}
+.dark .sl::before{background:var(--copl);}
+.dark .st{color:var(--cr);}
+.dark .st em{color:var(--copl);}
+.dark .ssub{color:rgba(250,246,239,.38);}
+
+/* ABOUT */
+#about{background:var(--cr);}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start;}
+.ab p{font-size:.92rem;line-height:1.9;color:var(--ink2);margin-bottom:15px;}
+.ab strong{color:var(--eg);font-weight:600;}
+
+.dtable{margin-top:34px;border-top:1px solid var(--cr3);}
+.dr{display:grid;grid-template-columns:100px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--cr3);align-items:baseline;}
+.dlb{font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mu);font-weight:700;font-family:'Outfit',sans-serif;}
+.dv{font-size:.87rem;color:var(--ink);font-weight:500;}
+
+.astats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:34px;}
+.ac{padding:22px 18px;border:1px solid var(--cr3);background:var(--wh);border-top:2px solid var(--cop);transition:transform .3s,box-shadow .3s;}
+.ac:hover{transform:translateY(-3px);box-shadow:var(--sh);}
+.acn{font-family:'Italiana',serif;font-size:2.6rem;color:var(--eg);line-height:1;}
+.acl{font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin-top:4px;font-weight:600;}
+
+.lpills{display:flex;gap:9px;margin-top:26px;}
+.lpill{padding:7px 20px;font-size:.7rem;font-weight:600;font-family:'Outfit',sans-serif;letter-spacing:.1em;border:1px solid var(--bc);color:var(--cop);background:rgba(181,112,58,.05);}
+
+/* about visual */
+.av{position:relative;margin-top:10px;padding-bottom:40px;}
+.aim{width:100%;height:490px;background:var(--eg);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;}
+.aim::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 38px,rgba(250,246,239,.02) 38px,rgba(250,246,239,.02) 39px),repeating-linear-gradient(90deg,transparent,transparent 38px,rgba(250,246,239,.02) 38px,rgba(250,246,239,.02) 39px);}
+.ail{font-family:'Italiana',serif;font-size:9rem;color:rgba(250,246,239,.07);line-height:1;position:relative;z-index:1;}
+.ait{font-size:.6rem;letter-spacing:.38em;text-transform:uppercase;color:rgba(250,246,239,.18);font-family:'Outfit',sans-serif;position:relative;z-index:1;}
+.afc{position:absolute;bottom:-28px;right:-18px;background:var(--wh);padding:20px 22px;border:1px solid var(--cr3);border-left:3px solid var(--cop);box-shadow:0 16px 50px rgba(13,79,60,.14);min-width:215px;}
+.aft{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);margin-bottom:12px;font-weight:700;}
+.afl{display:flex;flex-direction:column;gap:9px;}
+.afi{display:flex;align-items:center;gap:9px;font-size:.79rem;color:var(--ink2);font-weight:500;}
+.afd{width:6px;height:6px;background:var(--cop);flex-shrink:0;}
+
+/* SKILLS */
+#skills{background:var(--eg2);}
+.skl{display:grid;grid-template-columns:1.3fr .7fr;gap:46px;align-items:start;}
+.skbars{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.skc{background:rgba(250,246,239,.04);border:1px solid rgba(250,246,239,.07);padding:26px 22px;transition:border-color .3s,transform .3s;}
+.skc:hover{border-color:rgba(181,112,58,.4);transform:translateY(-3px);}
+.skh{display:flex;align-items:center;gap:11px;margin-bottom:20px;}
+.skih{width:38px;height:38px;background:rgba(181,112,58,.12);border:1px solid rgba(181,112,58,.25);display:flex;align-items:center;justify-content:center;font-size:1.05rem;}
+.skn{font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:600;color:var(--cr);}
+.sbw{display:flex;flex-direction:column;gap:12px;}
+.sbi{}
+.sbl{display:flex;justify-content:space-between;margin-bottom:5px;font-size:.69rem;color:rgba(250,246,239,.45);font-family:'Outfit',sans-serif;}
+.sbl span:last-child{color:var(--copl);font-weight:600;}
+.sbt{height:3px;background:rgba(250,246,239,.07);overflow:hidden;}
+.sbf{height:100%;background:linear-gradient(90deg,var(--cop),var(--copl));transition:width 1.3s cubic-bezier(.4,0,.2,1);}
+
+.sskills{background:rgba(250,246,239,.03);border:1px solid rgba(250,246,239,.06);padding:26px;}
+.sskt{font-family:'Outfit',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,246,239,.3);margin-bottom:18px;}
+.ssl{display:flex;flex-direction:column;gap:9px;}
+.ssi{display:flex;align-items:center;gap:11px;padding:12px 13px;background:rgba(250,246,239,.03);border:1px solid rgba(250,246,239,.05);}
+.ssic{width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+.ssit{font-size:.8rem;color:rgba(250,246,239,.55);font-family:'Outfit',sans-serif;}
+
+.toolrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+.tt2{padding:6px 15px;background:rgba(13,79,60,.5);border:1px solid rgba(26,122,94,.35);font-size:.69rem;color:rgba(250,246,239,.6);font-family:'Outfit',sans-serif;font-weight:500;letter-spacing:.05em;}
+
+/* PROJECTS */
+#projects{background:var(--cr2);}
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.pc{background:var(--wh);border:1px solid var(--cr3);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .3s,transform .3s;}
+.pc:hover{box-shadow:0 24px 60px rgba(13,79,60,.13);transform:translateY(-5px);}
+.ptb{height:3px;background:linear-gradient(90deg,var(--cop),var(--copl));}
+.ptb.g{background:linear-gradient(90deg,var(--eg),var(--egl));}
+.ptb.o{background:linear-gradient(90deg,#b5703a,#c97d3e);}
+.pb{padding:30px 26px;flex:1;display:flex;flex-direction:column;}
+.pnum{font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:700;color:var(--cop);letter-spacing:.22em;text-transform:uppercase;margin-bottom:15px;}
+.piw{width:50px;height:50px;background:rgba(181,112,58,.08);display:flex;align-items:center;justify-content:center;font-size:1.35rem;margin-bottom:18px;}
+.ptt{font-family:'Libre Baskerville',serif;font-size:1.08rem;font-weight:700;color:var(--eg);margin-bottom:10px;line-height:1.3;}
+.pd{font-size:.81rem;line-height:1.82;color:var(--ink2);flex:1;}
+.ptags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px;}
+.ptag{padding:4px 11px;background:rgba(181,112,58,.07);font-size:.63rem;color:var(--cop);font-family:'Outfit',sans-serif;font-weight:600;letter-spacing:.05em;}
+.ptag.eg{background:rgba(13,79,60,.07);color:var(--eg);}
+.pft{padding:15px 26px;background:var(--cr);border-top:1px solid var(--cr3);display:flex;justify-content:space-between;align-items:center;}
+.pst{display:flex;align-items:center;gap:6px;font-size:.7rem;color:var(--egl);font-family:'Outfit',sans-serif;font-weight:600;}
+.pst::before{content:'';width:6px;height:6px;background:var(--egl);border-radius:50%;}
+.pty{font-size:.66rem;color:var(--mu);font-family:'Outfit',sans-serif;letter-spacing:.08em;text-transform:uppercase;}
+
+/* EXPERIENCE */
+#experience{background:var(--wh);}
+.exl{display:grid;grid-template-columns:1fr 1fr;gap:76px;}
+.exclt{font-family:'Outfit',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--cop);margin-bottom:30px;padding-bottom:12px;border-bottom:2px solid var(--cr2);display:flex;align-items:center;gap:9px;}
+.exclt i{font-style:normal;font-size:.95rem;}
+
+.tl{position:relative;}
+.tli{position:relative;padding:0 0 34px 30px;border-left:2px solid var(--cr2);}
+.tli:last-child{padding-bottom:0;border-left-color:transparent;}
+.tli::before{content:'';position:absolute;left:-7px;top:7px;width:12px;height:12px;background:var(--cop);border-radius:50%;border:2px solid var(--wh);box-shadow:0 0 0 3px var(--cr2);}
+.tly{font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:700;color:var(--cop);letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px;}
+.tltit{font-family:'Libre Baskerville',serif;font-size:1.06rem;font-weight:700;color:var(--eg);margin-bottom:3px;}
+.tlorg{font-size:.79rem;color:var(--mu);margin-bottom:10px;}
+.tlbdg{display:inline-block;background:rgba(181,112,58,.08);color:var(--cop);font-size:.63rem;font-weight:700;padding:3px 13px;letter-spacing:.07em;font-family:'Outfit',sans-serif;}
+.tldesc{margin-top:11px;font-size:.79rem;color:var(--ink2);line-height:1.75;}
+
+.icard{background:var(--cr);border:1px solid var(--cr3);overflow:hidden;}
+.ich{background:var(--eg);padding:22px 24px;display:flex;align-items:center;gap:15px;}
+.icl{width:44px;height:44px;background:var(--cop);display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:700;font-size:.9rem;color:var(--cr);}
+.ico{font-family:'Outfit',sans-serif;font-weight:600;font-size:.98rem;color:var(--cr);}
+.icr{font-size:.73rem;color:rgba(250,246,239,.42);margin-top:2px;}
+.icb{padding:22px 24px;}
+.icp{font-size:.79rem;color:var(--ink2);line-height:1.75;margin-bottom:16px;}
+.icul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.icul li{font-size:.81rem;color:var(--ink2);padding:9px 12px 9px 34px;background:var(--wh);border:1px solid var(--cr3);position:relative;line-height:1.65;}
+.icul li::before{content:'→';position:absolute;left:12px;top:9px;color:var(--cop);font-weight:700;font-size:.78rem;}
+.icert{margin:18px 24px 22px;background:var(--eg);padding:18px 20px;display:flex;align-items:center;gap:13px;}
+.icci{font-size:1.7rem;}
+.iccn{font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:600;color:var(--cr);margin-bottom:3px;}
+.icco{font-size:.68rem;color:rgba(250,246,239,.38);letter-spacing:.07em;}
+
+/* GALLERY */
+#gallery{background:var(--cr2);}
+.galg{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:255px 255px;gap:13px;}
+.gi{overflow:hidden;background:var(--eg);position:relative;cursor:pointer;transition:transform .4s;}
+.gi:hover{transform:scale(1.025);}
+.ga{grid-column:1/6;grid-row:1/3;}
+.gb{grid-column:6/10;grid-row:1/2;}
+.gc{grid-column:10/13;grid-row:1/2;}
+.gd{grid-column:6/10;grid-row:2/3;}
+.ge{grid-column:10/13;grid-row:2/3;}
+.gph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;}
+.gnum{font-family:'Italiana',serif;font-size:3.5rem;color:rgba(250,246,239,.07);line-height:1;}
+.ga .gnum{font-size:7.5rem;}
+.gtag{font-family:'Outfit',sans-serif;font-size:.63rem;letter-spacing:.2em;color:rgba(250,246,239,.22);text-transform:uppercase;background:rgba(181,112,58,.15);padding:4px 13px;}
+.gov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,61,46,.9) 0%,transparent 50%);display:flex;align-items:flex-end;padding:18px;opacity:0;transition:opacity .35s;}
+.gi:hover .gov{opacity:1;}
+.govl{font-family:'Outfit',sans-serif;font-size:.68rem;letter-spacing:.15em;color:var(--copl);text-transform:uppercase;font-weight:600;}
+
+/* CONTACT */
+#contact{background:var(--eg2);}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:44px;}
+.cc{background:rgba(250,246,239,.04);border:1px solid rgba(250,246,239,.08);padding:28px;text-decoration:none;transition:all .28s;}
+.cc:hover{background:rgba(181,112,58,.1);border-color:rgba(181,112,58,.35);transform:translateY(-3px);}
+.cci{font-size:1.5rem;margin-bottom:14px;}
+.ccl{font-family:'Outfit',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,246,239,.32);margin-bottom:7px;}
+.ccv{font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:500;color:var(--cr);word-break:break-all;}
+.ccs{font-size:.71rem;color:rgba(250,246,239,.3);margin-top:4px;}
+
+.avail{display:inline-flex;align-items:center;gap:10px;background:rgba(13,79,60,.5);border:1px solid rgba(26,122,94,.3);padding:8px 20px;margin-bottom:40px;font-family:'Outfit',sans-serif;font-size:.73rem;font-weight:500;color:#4ade80;}
+.adot{width:7px;height:7px;background:#22c55e;border-radius:50%;box-shadow:0 0 8px #22c55e;animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+.ctarow{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+
+/* FOOTER */
+footer{background:#060f08;padding:30px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-top:1px solid rgba(250,246,239,.05);}
+.fl{display:flex;align-items:center;gap:12px;}
+.flm{width:34px;height:34px;border:1.5px solid var(--cop);display:flex;align-items:center;justify-content:center;font-family:'Italiana',serif;font-size:1rem;color:var(--cop);}
+.fln{font-family:'Italiana',serif;font-size:1.1rem;color:rgba(250,246,239,.45);letter-spacing:.06em;}
+.fln span{color:var(--copl);}
+.flinks{display:flex;gap:22px;}
+.flinks a{font-size:.7rem;color:rgba(250,246,239,.28);text-decoration:none;font-family:'Outfit',sans-serif;transition:color .2s;letter-spacing:.05em;}
+.flinks a:hover{color:rgba(250,246,239,.65);}
+.fcopy{font-size:.65rem;color:rgba(250,246,239,.2);letter-spacing:.07em;font-family:'Outfit',sans-serif;}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s ease;}
+.rvl{opacity:0;transform:translateX(-26px);transition:opacity .75s ease,transform .75s ease;}
+.rvr{opacity:0;transform:translateX(26px);transition:opacity .75s ease,transform .75s ease;}
+.rv.on,.rvl.on,.rvr.on{opacity:1;transform:none;}
+
+@keyframes up{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fi{from{opacity:0;}to{opacity:1;}}
+
+/* ═══ MOBILE RESPONSIVE ═══ */
+@media (max-width: 768px) {
+
+  /* NAV */
+  nav{padding:0 18px;height:60px;}
+  .nl{display:none;}
+  .nn{font-size:1.05rem;}
+  .ns{display:none;}
+
+  /* HERO */
+  .hero{padding:80px 18px 60px;}
+  .hero::before{width:100%;clip-path:none;opacity:.4;}
+  .hi{grid-template-columns:1fr;gap:36px;}
+  .hname{font-size:clamp(3.2rem,14vw,5.5rem);}
+  .hdesc{font-size:.88rem;max-width:100%;}
+  .hbtns{gap:10px;}
+  .btn{padding:11px 24px;font-size:.72rem;}
+  .hinfo{gap:14px;flex-wrap:wrap;}
+  .hii{font-size:.7rem;}
+  .hcard{display:none;}
+
+  /* SECTIONS */
+  section{padding:60px 18px;}
+  .container{max-width:100%;}
+  .st{font-size:clamp(2rem,8vw,3rem);}
+  .ssub{font-size:.85rem;margin-bottom:36px;}
+
+  /* ABOUT */
+  .ag{grid-template-columns:1fr;gap:40px;}
+  .ab p{font-size:.88rem;}
+  .dtable{margin-top:22px;}
+  .dr{grid-template-columns:90px 1fr;gap:8px;}
+  .astats{grid-template-columns:1fr 1fr;gap:10px;}
+  .ac{padding:16px 13px;}
+  .acn{font-size:2rem;}
+  .lpills{flex-wrap:wrap;}
+  .av{padding-bottom:20px;}
+  .aim{height:300px;}
+  .ail{font-size:6rem;}
+  .afc{position:relative;bottom:auto;right:auto;margin-top:16px;min-width:unset;}
+
+  /* SKILLS */
+  .skl{grid-template-columns:1fr;gap:28px;}
+  .skbars{grid-template-columns:1fr;gap:14px;}
+  .skc{padding:20px 16px;}
+
+  /* PROJECTS */
+  .pg{grid-template-columns:1fr;gap:18px;}
+  .pb{padding:22px 18px;}
+  .pd{font-size:.79rem;}
+
+  /* EXPERIENCE */
+  .exl{grid-template-columns:1fr;gap:40px;}
+  .tli{padding:0 0 26px 24px;}
+  .tltit{font-size:.95rem;}
+  .icb{padding:16px 16px;}
+  .ich{padding:16px 16px;}
+  .icul li{font-size:.76rem;}
+  .icert{margin:12px 16px 16px;}
+
+  /* GALLERY */
+  .galg{grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:10px;}
+  .ga{grid-column:1/3;grid-row:auto;height:200px;}
+  .gb{grid-column:1/2;grid-row:auto;height:150px;}
+  .gc{grid-column:2/3;grid-row:auto;height:150px;}
+  .gd{grid-column:1/2;grid-row:auto;height:150px;}
+  .ge{grid-column:2/3;grid-row:auto;height:150px;}
+
+  /* CONTACT */
+  .cg{grid-template-columns:1fr;gap:12px;margin-bottom:28px;}
+  .cc{padding:20px 18px;}
+  .ccv{font-size:.82rem;}
+  .ctarow{flex-direction:column;align-items:center;gap:10px;}
+  .ctarow .btn{width:100%;max-width:320px;text-align:center;}
+
+  /* FOOTER */
+  footer{padding:24px 18px;flex-direction:column;text-align:center;gap:16px;}
+  .flinks{flex-wrap:wrap;justify-content:center;gap:14px;}
+  .fcopy{font-size:.6rem;}
+}
+
+@media (max-width: 420px) {
+  nav{padding:0 14px;}
+  .hero{padding:74px 14px 50px;}
+  section{padding:50px 14px;}
+  .hname{font-size:clamp(2.8rem,12vw,4.5rem);}
+  .galg{grid-template-columns:1fr;}
+  .ga,.gb,.gc,.gd,.ge{grid-column:1/-1;height:160px;}
+  .cg{gap:10px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a href="#" class="nb">
+    <div class="nm">HT</div>
+    <div>
+      <div class="nn">Harish T</div>
+      <div class="ns">Electronics Engineer</div>
+    </div>
+  </a>
+  <ul class="nl">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact" class="nc">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="home">
+  <div class="hi">
+    <div>
+      <div class="heb"><div class="hel"></div><span>Available for Opportunities · Tamil Nadu</span></div>
+      <h1 class="hname">Harish T<span>Engineer · Actor · Creator</span></h1>
+      <div class="hroles">
+        <span class="rc rc-e">ECE Student</span>
+        <span class="rc rc-c">IoT Certified</span>
+        <span class="rc rc-e">PCB Designer</span>
+        <span class="rc rc-c">3D Modeler</span>
+        <span class="rc rc-e">Actor</span>
+        <span class="rc rc-c">Green Soft Alumni</span>
+      </div>
+      <p class="hdesc">B.E. Electronics &amp; Communication Engineering student at M.I.E.T. Engineering College, Trichy. Passionate about embedded systems, IoT, PCB design, and creative expression through acting and visual media.</p>
+      <div class="hbtns">
+        <a href="#projects" class="btn btn-cop">View Projects</a>
+        <a href="#contact" class="btn btn-ol">Get in Touch</a>
+      </div>
+      <div class="hinfo">
+        <div class="hii"><div class="hid"></div><strong>M.I.E.T. College</strong>&nbsp;Trichy</div>
+        <div class="hii"><div class="hid"></div><strong>CGPA 7.0</strong>&nbsp;ECE</div>
+        <div class="hii"><div class="hid"></div><strong>Thiruvarrur</strong>&nbsp;TN</div>
+        <div class="hii"><div class="hid"></div><strong>2022–2026</strong></div>
+      </div>
+    </div>
+    <div class="hcard">
+      <div class="hpbox">
+        <div class="hpm">HT</div>
+        <div class="hpl">Harish T — Portfolio 2026</div>
+      </div>
+      <div class="hsg">
+        <div class="hsi"><div class="hsv">7.0</div><div class="hsk">CGPA Score</div></div>
+        <div class="hsi"><div class="hsv">3+</div><div class="hsk">Projects</div></div>
+        <div class="hsi"><div class="hsv">IoT</div><div class="hsk">Certified</div></div>
+        <div class="hsi"><div class="hsv">2026</div><div class="hsk">Graduating</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TICKER ═══ -->
+<div class="ticker">
+  <div class="tt">
+    <span>Circuit Design</span><span>IoT Systems</span><span>PCB Layout</span><span>Embedded Systems</span><span>3D Modeling</span><span>VLSI Core</span><span>Hardware Debugging</span><span>Microcontrollers</span><span>Digital Marketing</span><span>Critical Thinking</span><span>Acting &amp; Modelling</span><span>Tamil Nadu</span>
+    <span>Circuit Design</span><span>IoT Systems</span><span>PCB Layout</span><span>Embedded Systems</span><span>3D Modeling</span><span>VLSI Core</span><span>Hardware Debugging</span><span>Microcontrollers</span><span>Digital Marketing</span><span>Critical Thinking</span><span>Acting &amp; Modelling</span><span>Tamil Nadu</span>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="container">
+    <div class="ag">
+      <div>
+        <p class="sl rv">Who I Am</p>
+        <h2 class="st rv">Engineer &amp; <em>Creative Mind</em></h2>
+        <div class="ab">
+          <p class="rv">I am <strong>Harish T</strong>, a final-year B.E. Electronics and Communication Engineering student at M.I.E.T. Engineering College, Trichy (2022–2026), with a solid foundation in analog and digital electronics, circuit design, and embedded systems.</p>
+          <p class="rv">I completed a professional internship at <strong>Green Soft</strong>, where I gained hands-on experience designing PCB layouts, testing circuits, debugging hardware with precision instruments, and contributing to microcontroller-based project development under senior engineers.</p>
+          <p class="rv">Beyond engineering, I express creativity through <strong>acting and visual media</strong>, combining technical discipline with artistic versatility — making me a uniquely multidimensional professional ready for any challenge.</p>
+        </div>
+        <div class="dtable rv">
+          <div class="dr"><span class="dlb">Name</span><span class="dv">Harish T</span></div>
+          <div class="dr"><span class="dlb">Phone</span><span class="dv">8637628006</span></div>
+          <div class="dr"><span class="dlb">Email</span><span class="dv" style="font-size:.82rem;">harijai124@gmail.com</span></div>
+          <div class="dr"><span class="dlb">Location</span><span class="dv">Thiruvarrur, Tamil Nadu</span></div>
+          <div class="dr"><span class="dlb">Address</span><span class="dv" style="font-size:.81rem;">77B, Ammathopu Duragalaya Road, Pin 610001</span></div>
+          <div class="dr"><span class="dlb">Degree</span><span class="dv">B.E. Electronics &amp; Communication Engg.</span></div>
+          <div class="dr"><span class="dlb">College</span><span class="dv">M.I.E.T. Engineering College, Trichy</span></div>
+          <div class="dr"><span class="dlb">Batch</span><span class="dv">2022 — 2026</span></div>
+        </div>
+        <div class="astats rv">
+          <div class="ac"><div class="acn">7.0</div><div class="acl">Current CGPA</div></div>
+          <div class="ac"><div class="acn">3+</div><div class="acl">Projects Completed</div></div>
+          <div class="ac"><div class="acn">1</div><div class="acl">Industry Internship</div></div>
+          <div class="ac"><div class="acn">2</div><div class="acl">Languages Spoken</div></div>
+        </div>
+        <div class="lpills rv">
+          <span class="lpill">🇮🇳 Tamil</span>
+          <span class="lpill">🇬🇧 English</span>
+        </div>
+      </div>
+      <div class="av rvr">
+        <div class="aim">
+          <div class="ail">HT</div>
+          <div class="ait">Harish T · ECE Engineer · 2026</div>
+        </div>
+        <div class="afc">
+          <div class="aft">Core Strengths</div>
+          <div class="afl">
+            <div class="afi"><div class="afd"></div>Embedded Systems Design</div>
+            <div class="afi"><div class="afd"></div>IoT Implementation</div>
+            <div class="afi"><div class="afd"></div>PCB Layout &amp; Testing</div>
+            <div class="afi"><div class="afd"></div>Hardware Debugging</div>
+            <div class="afi"><div class="afd"></div>Acting &amp; Creative Media</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SKILLS ═══ -->
+<section id="skills" class="dark">
+  <div class="container">
+    <p class="sl rv">Expertise</p>
+    <h2 class="st rv">Skills &amp; <em>Capabilities</em></h2>
+    <p class="ssub rv">A comprehensive skill set built through academic study, real-world internship experience, and self-driven learning across electronics, IoT, and communication engineering.</p>
+    <div class="skl">
+      <div>
+        <div class="skbars rv">
+          <div class="skc">
+            <div class="skh"><div class="skih">⚡</div><div class="skn">Hardware &amp; Electronics</div></div>
+            <div class="sbw">
+              <div class="sbi"><div class="sbl"><span>Circuit Design</span><span>85%</span></div><div class="sbt"><div class="sbf" data-w="85"></div></div></div>
+              <div class="sbi"><div class="sbl"><span>PCB Layout Design</span><span>80%</span></div><div class="sbt"><div class="sbf" data-w="80"></div></div></div>
+              <div class="sbi"><div class="sbl"><span>Basic Electronics</span><span>90%</span></div><div class="sbt"><div class="sbf" data-w="90"></div></div></div>
+              <div class="sbi"><div class="sbl"><span>Hardware Debugging</span><span>78%</span></div><div class="sbt"><div class="sbf" data-w="78"></div></div></div>
+            </div>
+          </div>
+          <div class="skc">
+            <div class="skh"><div class="skih">🌐</div><div class="skn">IoT &amp; Embedded</div></div>
+            <div class="sbw">
+              <div class="sbi"><div class="sbl"><span>Internet of Things</span><span>82%</span></div><div class="sbt"><div class="sbf" data-w="82"></div></div></div>
+              <div class="sbi"><div class="sbl"><span>Microcontrollers</span><span>76%</span></div><div class="sbt"><div class="sbf" data-w="76"></div></div></div>
+              <div class="sbi"><div class="sbl"><span>VLSI Basic Core</span><span>66%</span></div><div class="sbt"><div class="sbf" data-w="66"></div></div></div>
+              <div class="sbi"><div class="sbl"><span>3D Model Dev.</span><span>72%</span></div><div class="sbt"><div class="sbf" data-w="72"></div></div></div>
+            </div>
+          </div>
+          <div class="skc">
+            <div class="skh"><div class="skih">📡</div><div class="skn">Testing &amp; Analysis</div></div>
+            <div class="sbw">
+              <div class="sbi"><div class="sbl"><span>Multimeter Testing</span><span>84%</span></div><div class="sbt"><div class="sbf" data-w="84"></div></div></div>
+              <div class="sbi"><div class="sbl"><span>Circuit Verification</span><span>80%</span></div><div class="sbt"><div class="sbf" data-w="80"></div></div></div>
+              <div class="sbi"><div class="sbl"><span>Component Placement</span><span>78%</span></div><div class="sbt"><div class="sbf" data-w="78"></div></div></div>
+              <div class="sbi"><div class="sbl"><span>Signal Testing</span><span>73%</span></div><div class="sbt"><div class="sbf" data-w="73"></div></div></div>
+            </div>
+          </div>
+          <div class="skc">
+            <div class="skh"><div class="skih">📱</div><div class="skn">Professional Skills</div></div>
+            <div class="sbw">
+              <div class="sbi"><div class="sbl"><span>Communication</span><span>88%</span></div><div class="sbt"><div class="sbf" data-w="88"></div></div></div>
+              <div class="sbi"><div class="sbl"><span>Digital Marketing</span><span>74%</span></div><div class="sbt"><div class="sbf" data-w="74"></div></div></div>
+              <div class="sbi"><div class="sbl"><span>Time Management</span><span>85%</span></div><div class="sbt"><div class="sbf" data-w="85"></div></div></div>
+              <div class="sbi"><div class="sbl"><span>Critical Thinking</span><span>82%</span></div><div class="sbt"><div class="sbf" data-w="82"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="toolrow rv" style="margin-top:22px;">
+          <span class="tt2">Multimeter</span><span class="tt2">PCB Fabrication</span><span class="tt2">Sensor Integration</span><span class="tt2">LCD Interfacing</span><span class="tt2">Power Systems</span><span class="tt2">Analog Design</span><span class="tt2">Digital Circuits</span><span class="tt2">Circuit Simulation</span><span class="tt2">Relay Circuits</span><span class="tt2">Voltage Testing</span>
+        </div>
+      </div>
+      <div class="rv">
+        <div class="sskills">
+          <div class="sskt">Soft Skills</div>
+          <div class="ssl">
+            <div class="ssi"><div class="ssic" style="background:rgba(181,112,58,.15);">🧠</div><span class="ssit">Critical Thinking &amp; Problem Solving</span></div>
+            <div class="ssi"><div class="ssic" style="background:rgba(13,79,60,.3);">📊</div><span class="ssit">Project Management &amp; Planning</span></div>
+            <div class="ssi"><div class="ssic" style="background:rgba(181,112,58,.15);">💬</div><span class="ssit">Professional Communication</span></div>
+            <div class="ssi"><div class="ssic" style="background:rgba(13,79,60,.3);">📱</div><span class="ssit">Digital Marketing Awareness</span></div>
+            <div class="ssi"><div class="ssic" style="background:rgba(181,112,58,.15);">⏱</div><span class="ssit">Time Management &amp; Deadline Focus</span></div>
+            <div class="ssi"><div class="ssic" style="background:rgba(13,79,60,.3);">🤝</div><span class="ssit">Team Collaboration &amp; Leadership</span></div>
+          </div>
+        </div>
+        <div style="margin-top:22px;padding:22px;background:rgba(181,112,58,.08);border:1px solid rgba(181,112,58,.2);">
+          <div style="font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,246,239,.3);margin-bottom:13px;font-weight:700;font-family:'Outfit',sans-serif;">Certification</div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="font-size:1.6rem;">🏅</span>
+            <div>
+              <div style="font-family:'Outfit',sans-serif;font-size:.84rem;font-weight:600;color:var(--copl);margin-bottom:3px;">Embedded System in IoT</div>
+              <div style="font-size:.7rem;color:rgba(250,246,239,.35);letter-spacing:.07em;">Certified by Green Soft</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:14px;padding:20px;background:rgba(13,79,60,.4);border:1px solid rgba(26,122,94,.2);">
+          <div style="font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,246,239,.3);margin-bottom:10px;font-weight:700;font-family:'Outfit',sans-serif;">Languages</div>
+          <div style="display:flex;gap:9px;flex-wrap:wrap;">
+            <span style="padding:6px 18px;border:1px solid rgba(181,112,58,.3);font-size:.72rem;color:var(--copl);font-family:'Outfit',sans-serif;font-weight:600;">🇮🇳 Tamil — Native</span>
+            <span style="padding:6px 18px;border:1px solid rgba(181,112,58,.3);font-size:.72rem;color:var(--copl);font-family:'Outfit',sans-serif;font-weight:600;">🇬🇧 English — Proficient</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECTS ═══ -->
+<section id="projects">
+  <div class="container">
+    <p class="sl rv">My Work</p>
+    <h2 class="st rv">Featured <em>Engineering Projects</em></h2>
+    <p class="ssub rv">Three hands-on projects built during academic training — each solving a real-world problem using IoT, embedded systems, and hardware engineering expertise.</p>
+    <div class="pg">
+
+      <div class="pc rv">
+        <div class="ptb"></div>
+        <div class="pb">
+          <div class="pnum">Project 01 · IoT &amp; Safety</div>
+          <div class="piw">⚡</div>
+          <div class="ptt">IoT Coal Mine Safety &amp; Health Monitoring System</div>
+          <p class="pd">A real-time safety monitoring system designed for coal mine environments. The system continuously tracks temperature, gas concentration, humidity levels, and worker health metrics using IoT sensors. Data is wirelessly transmitted to a central dashboard, enabling supervisors to monitor hazardous conditions remotely and trigger emergency alerts instantly — drastically improving worker safety and mine management efficiency.</p>
+          <div class="ptags">
+            <span class="ptag">IoT</span><span class="ptag">Sensors</span><span class="ptag">Microcontroller</span><span class="ptag">Real-Time</span><span class="ptag">Safety System</span><span class="ptag">Wireless</span>
+          </div>
+        </div>
+        <div class="pft"><span class="pst">Completed</span><span class="pty">Academic Project</span></div>
+      </div>
+
+      <div class="pc rv">
+        <div class="ptb o"></div>
+        <div class="pb">
+          <div class="pnum" style="color:var(--eg);">Project 02 · Embedded Systems</div>
+          <div class="piw" style="background:rgba(13,79,60,.07);">🖥</div>
+          <div class="ptt">LCD Display Monitor for Micro Processor</div>
+          <p class="pd">Successfully interfaced a 16×2 LCD display module with a microprocessor to visualize processed data in real time. The project demonstrated register-level programming, data bus communication, display driver implementation, and timing control. Multiple data sets were tested to verify output accuracy and synchronization integrity across different clock speeds.</p>
+          <div class="ptags">
+            <span class="ptag eg">LCD Interfacing</span><span class="ptag eg">Microprocessor</span><span class="ptag eg">Embedded</span><span class="ptag eg">Driver Code</span><span class="ptag eg">Register Programming</span>
+          </div>
+        </div>
+        <div class="pft"><span class="pst">Completed</span><span class="pty">Academic Project</span></div>
+      </div>
+
+      <div class="pc rv">
+        <div class="ptb g"></div>
+        <div class="pb">
+          <div class="pnum" style="color:var(--eg);">Project 03 · Power Systems</div>
+          <div class="piw" style="background:rgba(13,79,60,.07);">🔌</div>
+          <div class="ptt">Automatic Power Failure Detection System</div>
+          <p class="pd">Designed and built an automatic circuit that continuously monitors power supply lines and detects failures or voltage drops in milliseconds. Upon detection, a relay-based backup switching mechanism activates alongside audio-visual alerts. Tested under multiple load conditions, the circuit demonstrated consistent and reliable detection — suitable for critical infrastructure and industrial safety applications.</p>
+          <div class="ptags">
+            <span class="ptag eg">Power Systems</span><span class="ptag eg">Relay Circuit</span><span class="ptag eg">Auto Detection</span><span class="ptag eg">Automation</span><span class="ptag eg">Industrial</span>
+          </div>
+        </div>
+        <div class="pft"><span class="pst">Completed</span><span class="pty">Academic Project</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ═══ -->
+<section id="experience">
+  <div class="container">
+    <p class="sl rv">Background</p>
+    <h2 class="st rv">Education &amp; <em>Professional Experience</em></h2>
+    <p class="ssub rv">A strong academic foundation in Electronics Engineering combined with practical industry experience through a complete internship programme at Green Soft, Thiruvarrur.</p>
+    <div class="exl">
+
+      <div class="rvl">
+        <div class="exclt"><i>🎓</i> Education Timeline</div>
+        <div class="tl">
+          <div class="tli">
+            <div class="tly">2022 — 2026 · Ongoing</div>
+            <div class="tltit">B.E. Electronics &amp; Communication Engineering</div>
+            <div class="tlorg">M.I.E.T. Engineering College, Trichy</div>
+            <span class="tlbdg">CGPA — 7.0</span>
+            <p class="tldesc">Core subjects include analog electronics, digital circuits, communication systems, embedded systems, VLSI design, microprocessors, signal processing, and PCB design. Actively involved in lab sessions and engineering project development throughout the programme.</p>
+          </div>
+          <div class="tli">
+            <div class="tly">2021 — 2022</div>
+            <div class="tltit">HSC — Higher Secondary Certificate</div>
+            <div class="tlorg">VHSS Boys School, Thiruvarrur</div>
+            <span class="tlbdg">62.2%</span>
+            <p class="tldesc">Completed higher secondary education in the Science stream with Physics, Chemistry, and Mathematics — laying the foundation for engineering studies.</p>
+          </div>
+          <div class="tli">
+            <div class="tly">2019 — 2020</div>
+            <div class="tltit">SSLC — Secondary School Leaving Certificate</div>
+            <div class="tlorg">Veludayar Higher Secondary School, Thiruvarrur</div>
+            <span class="tlbdg">56.4%</span>
+            <p class="tldesc">Completed secondary schooling covering core academic subjects including Mathematics, Science, Social Studies, Tamil, and English. Developed a disciplined academic foundation and problem-solving mindset.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rvr">
+        <div class="exclt"><i>💼</i> Professional Experience</div>
+        <div class="icard">
+          <div class="ich">
+            <div class="icl">GS</div>
+            <div>
+              <div class="ico">Green Soft</div>
+              <div class="icr">Electronic Design Engineer — Internship</div>
+            </div>
+          </div>
+          <div class="icb">
+            <p class="icp">Embedded within the electronic design team at Green Soft, I contributed hands-on to PCB layout design, circuit analysis, and hardware verification tasks. Working alongside senior engineers, I developed real-world technical skills across the full design and testing lifecycle.</p>
+            <ul class="icul">
+              <li>Designed and analyzed basic analog and digital circuits to specification requirements</li>
+              <li>Developed PCB layouts using design tools and verified all connections before fabrication</li>
+              <li>Conducted hardware debugging sessions using multimeter and electronic testing instruments</li>
+              <li>Assisted in the complete development cycle of microcontroller-based project modules</li>
+              <li>Collaborated with the senior design team to identify and resolve circuit performance issues</li>
+              <li>Executed component placement strategies for efficient and optimized PCB layout design</li>
+              <li>Performed systematic circuit testing and basic hardware troubleshooting end-to-end</li>
+            </ul>
+          </div>
+          <div class="icert">
+            <div class="icci">🏅</div>
+            <div>
+              <div class="iccn">Embedded System in IoT — Certified</div>
+              <div class="icco">Issued by Green Soft · Upon Internship Completion</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═══ -->
+<section id="gallery">
+  <div class="container">
+    <p class="sl rv">Portfolio</p>
+    <h2 class="st rv">Visual <em>Gallery</em></h2>
+    <p class="ssub rv">Portfolio photographs showcasing different looks, styles, and expressions — demonstrating versatility for acting, modelling, and creative media work.</p>
+    <div class="galg rv">
+      <div class="gi ga"><div class="gph" style="background:linear-gradient(145deg,#0b1f17,#0d4f3c)"><div class="gnum">01</div><div class="gtag">Blazer · Formal</div></div><div class="gov"><span class="govl">Formal Blazer Series</span></div></div>
+      <div class="gi gb"><div class="gph" style="background:linear-gradient(145deg,#1a2e20,#0a3d2e)"><div class="gnum">02</div><div class="gtag">Casual Outdoor</div></div><div class="gov"><span class="govl">Stone Wall Series</span></div></div>
+      <div class="gi gc"><div class="gph" style="background:linear-gradient(145deg,#112218,#0d4f3c)"><div class="gnum">03</div><div class="gtag">Portrait</div></div><div class="gov"><span class="govl">Close Portrait</span></div></div>
+      <div class="gi gd"><div class="gph" style="background:linear-gradient(145deg,#0f2a1c,#0a3d2e)"><div class="gnum">04</div><div class="gtag">White Shirt</div></div><div class="gov"><span class="govl">Outdoor Natural</span></div></div>
+      <div class="gi ge"><div class="gph" style="background:linear-gradient(145deg,#0b1f17,#112218)"><div class="gnum">05</div><div class="gtag">Editorial</div></div><div class="gov"><span class="govl">Editorial Series</span></div></div>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:.73rem;color:var(--mu);letter-spacing:.09em;">Replace placeholders by uploading your own photo files</p>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact" class="dark">
+  <div class="container" style="text-align:center;">
+    <p class="sl" style="justify-content:center;">Get in Touch</p>
+    <h2 class="st" style="color:var(--cr);">Let's Build Something <em>Together</em></h2>
+    <p class="ssub" style="margin-left:auto;margin-right:auto;text-align:center;color:rgba(250,246,239,.38);">Open to engineering internships, full-time roles, project collaborations, and acting or creative media opportunities across Tamil Nadu and beyond.</p>
+    <div class="avail rv">
+      <div class="adot"></div>
+      Currently Available — Tamil Nadu, India
+    </div>
+    <div class="cg rv">
+      <a href="tel:8637628006" class="cc">
+        <div class="cci">📞</div>
+        <div class="ccl">Phone Number</div>
+        <div class="ccv">8637628006</div>
+        <div class="ccs">Available Monday – Saturday</div>
+      </a>
+      <a href="mailto:harijai124@gmail.com" class="cc">
+        <div class="cci">✉️</div>
+        <div class="ccl">Email Address</div>
+        <div class="ccv">harijai124@gmail.com</div>
+        <div class="ccs">Response within 24 hours</div>
+      </a>
+      <div class="cc">
+        <div class="cci">📍</div>
+        <div class="ccl">Location</div>
+        <div class="ccv">Thiruvarrur, Tamil Nadu</div>
+        <div class="ccs">77B, Ammathopu Duragalaya Road — 610001</div>
+      </div>
+    </div>
+    <div class="ctarow rv">
+      <a href="mailto:harijai124@gmail.com" class="btn btn-cop" style="font-size:.82rem;padding:15px 42px;">Send a Message</a>
+      <a href="tel:8637628006" class="btn btn-ol" style="font-size:.82rem;padding:15px 42px;">Call Directly</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="fl">
+    <div class="flm">HT</div>
+    <div>
+      <div class="fln">Harish T <span>·</span> Electronics Engineer</div>
+    </div>
+  </div>
+  <div class="flinks">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="fcopy">© 2026 Harish T · All rights reserved · Thiruvarrur, Tamil Nadu</div>
+</footer>
+
+<script>
+// Scroll reveal
+const rvEls = document.querySelectorAll('.rv,.rvl,.rvr');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('on'), i*80);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:.08});
+rvEls.forEach(el=>obs.observe(el));
+
+// Nav shadow
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').style.boxShadow = window.scrollY>50?'0 4px 32px rgba(0,0,0,.35)':'';
+});
+
+// Skill bars animate when visible
+const bars = document.querySelectorAll('.sbf');
+bars.forEach(b=>{ b.style.width='0'; });
+const bObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const w = e.target.dataset.w;
+      setTimeout(()=>{ e.target.style.width = w+'%'; },300);
+      bObs.unobserve(e.target);
+    }
+  });
+},{threshold:.3});
+bars.forEach(b=>bObs.observe(b));
+
+// Active nav link
+const secs = document.querySelectorAll('section[id]');
+const nls = document.querySelectorAll('.nl a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{ if(window.scrollY>=s.offsetTop-90) cur=s.id; });
+  nls.forEach(a=>{ a.style.color=a.getAttribute('href')==='#'+cur?'#d4935a':''; });
+});
+</script>
+</body>
+</html>
